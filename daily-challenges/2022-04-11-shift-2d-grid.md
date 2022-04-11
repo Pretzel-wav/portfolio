@@ -11,6 +11,7 @@
 > Return the 2D grid after applying shift operation k times.
 >
 > Example 1:
+>
 > ![Grid example](https://assets.leetcode.com/uploads/2019/11/05/e1.png)
 >
 > Input: `grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1`
@@ -46,10 +47,11 @@ var shiftGrid = function(grid, k) {
     console.log(flattened);
 }
 ```
-Input: `[[1,2,3],[4,5,6],[7,8,9]]
-1`
 
-stdout: `[1, 2, 3, 4, 5, 6, 7, 8, 9]`
+```
+Input:  [[1,2,3],[4,5,6],[7,8,9]] 1
+stdout: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
 
 Success! Now to make our shift.
 
@@ -58,7 +60,6 @@ The idea here is to use `pop()` to return the value from the *end* that we want 
 
 ```javascript
 var shiftGrid = function(grid, k) {
-    var shifted = [];
     
     // Flatten matrix
     var flattened = grid.flat();
@@ -73,11 +74,12 @@ var shiftGrid = function(grid, k) {
 }
 ```
 
-Input: `[[1,2,3],[4,5,6],[7,8,9]] 1`
+```
+Input:  [[1,2,3],[4,5,6],[7,8,9]] 1
+stdout: [9, 1, 2, 3, 4, 5, 6, 7, 8]
+```
 
-stdout: `[9, 1, 2, 3, 4, 5, 6, 7, 8]`
-
-It works! I'm not a huge fan of the name I gave to `pusher`, mostly because the `push()` method adds elements to the *end* of the array instead of the *beginning*. Maybe I should have named it `unshifter`. In a similar vein, since these methods are updating the `flattened` array, after the shifting it's still named `flattened`, which gives me pause. Ideally, I would like to put in a line like `var shifted = flattened` and then do the shift operations on that new array, but it would come at the cost of speed and memory, so I left it out.
+It works! I'm not a huge fan of the name I gave to `pusher`, mostly because the `push()` method adds elements to the *end* of the array instead of the *beginning*. Maybe I should have named it `unshifter`. In a similar vein, since these methods are updating the `flattened` array, after the shifting it's still named `flattened`, which gives me pause. Ideally, I would like to put in a line like `var shifted = flattened` and then do the shift operations on `shifted`, but it would come at the cost of speed and memory, so I left it out.
 
 ## Rebuild Matrix
 
@@ -115,9 +117,10 @@ var shiftGrid = function(grid, k) {
 }
 ```
 
-Input: `[[1,2,3],[4,5,6],[7,8,9]] 1`
-
-stdout: `[ [ 9, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]`
+```
+Input:   [[1,2,3],[4,5,6],[7,8,9]] 1
+stdout:  [ [ 9, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
+```
 
 Wrong output! I could tell from the repeating `[1, 2, 3]` that there was probably an indexing problem, so I set up some `console.log()` outputs to keep an eye on the values for `i` and `j`, and found what probably should have been obvious: when a new row is added, `i` gets reset to 0, so the index referencing the element in `flattened` is not continuing to increase as I was expecting. No problem, I just added a `counter` variable and put a `counter++` at the end of the innermost `for` loop.
 
