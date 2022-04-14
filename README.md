@@ -7,4 +7,4 @@ The daily-challenges folder contains my solutions for the daily challenges on Le
 ### sql
 The sql folder, unsurprisingly, is where I put my SQL work.
 #### sql/sql1
-LeetCode.com offers "Study Plans" for various topics; currently I'm working through the SQL I plan, but as LeetCode doesn't have a placement test feature, I'm starting from the beginning. However, learning opportunities exist everywhere, and if you look for something to get out of a learning experience, you will, so I place Learning Points and Optimization Points in the comments throughout this section as much as I do everywhere else in this portfolio.
+LeetCode.com offers "Study Plans" for various topics; currently I'm working through the SQL I plan. Solutions to these problems are placed in this folder.
