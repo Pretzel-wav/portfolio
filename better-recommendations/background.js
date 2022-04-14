@@ -6,7 +6,6 @@ function openTab(){
 }
 
 function turnOff(){
-    
 }
 
 browser.browserAction.onClicked.addListener(openTab)
