@@ -1,4 +1,3 @@
-console.log("CHON, BABY");
 
 var images = document.getElementsByTagName('img');
 for (elt of images){

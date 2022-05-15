@@ -6,6 +6,7 @@ function openTab(){
 }
 
 function turnOff(){
+    // Function to click the extension icon to turn it off
 }
 
 browser.browserAction.onClicked.addListener(openTab)
