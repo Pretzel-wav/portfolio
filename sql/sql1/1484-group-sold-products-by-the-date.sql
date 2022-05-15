@@ -7,4 +7,4 @@ GROUP BY sell_date;
 
 -- Learning Points:
 -- STRING_AGG function
--- WITHIN GROUsP
+-- WITHIN GROUP
